@@ -5,18 +5,18 @@ WINDOW *create_help_win(int height, int width, int starty, int startx);
 void destroy_help_win(WINDOW *local_win);
 
 WINDOW *create_help_win(int height, int width, int starty, int startx)
-{   
+{
     WINDOW *local_win;
     char buffer [80];
 
     local_win = newwin(height, width, starty, startx);
-    box(local_win, 0 , 0);      /* 0, 0 gives default characters 
+    box(local_win, 0 , 0);      /* 0, 0 gives default characters
                      * for the vertical and horizontal
                      * lines            */
     wbkgd( local_win, COLOR_PAIR(1));
     color_set(1, NULL );
 
-    
+
 
     sprintf( buffer, " Command set for the LoRa Gateway ");
     mvaddstr( 1, ( 80 - strlen( buffer ) ) / 2, buffer );
@@ -42,13 +42,17 @@ WINDOW *create_help_win(int height, int width, int starty, int startx)
     sprintf( buffer, "M = Toggle Modes (This is not implemented yet!!!) ");
     mvaddstr( 12, ( 80 - strlen( buffer ) ) / 2, buffer );
 
+    //SH Extra Help Menu Item
+    sprintf( buffer, "If running in a background screen CTRL-a CTRL-d to exit");
+    mvaddstr( 13, ( 80 - strlen( buffer ) ) / 2, buffer );
+
     wrefresh(local_win);        /* Show that box        */
 
     return local_win;
 }
 
 void destroy_help_win(WINDOW *local_win)
-{   
+{
     int i = 0;
     char buffer [80];
 
