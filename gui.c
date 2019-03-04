@@ -43,7 +43,7 @@ WINDOW *create_help_win(int height, int width, int starty, int startx)
     mvaddstr( 12, ( 80 - strlen( buffer ) ) / 2, buffer );
 
     //SH Extra Help Menu Item
-    sprintf( buffer, "If running in a background screen CTRL-a CTRL-d to exit");
+    sprintf( buffer, "If running in a groovy background screen CTRL-a CTRL-d to exit");
     mvaddstr( 13, ( 80 - strlen( buffer ) ) / 2, buffer );
 
     wrefresh(local_win);        /* Show that box        */
